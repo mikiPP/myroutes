@@ -18,4 +18,13 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+
+# Avoid node_modules folder.
+node_modules/
+
+# Ignoring development and production folders (If need to deploy to Heroku, comment the "dist" line).
+.cache
+
+# Ignoring SCSS compiled files.
+*.css.map
+*.css
