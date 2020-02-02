@@ -1,32 +1,27 @@
 <template>
-      <div id="app">
-        <Button label="Primary" icon="pi pi-plus" />
-        // Adding the class "p-button-success" to the 2nd PrimeVue Button labeled "Success"
-        <Button label="Success" icon="pi pi-plus" class="p-button-success" />
-      </div>
-    </template>
+  <div>
+    <div>
+      <small>Flat</small>
+      <md-button>Default</md-button>
+      <md-button :md-ripple="false">Ripple Off</md-button>
+      <md-button class="md-primary">Primary</md-button>
+      <md-button class="md-accent">Accent</md-button>
+      <md-button disabled>Disabled</md-button>
+    </div>
 
-    <script>
-    import Button from 'primevue/button';
+    <div>
+      <small>Raised</small>
+      <md-button class="md-raised">Default</md-button>
+      <md-button class="md-raised" :md-ripple="false">Ripple Off</md-button>
+      <md-button class="md-raised md-primary">Primary</md-button>
+      <md-button class="md-raised md-accent">Accent</md-button>
+      <md-button class="md-raised" disabled>Disabled</md-button>
+    </div>
 
-    export default {
-      name: 'app',
-      components: {
-        Button
-      }
-    }
-
-    </script>
-
-    <style>
-    body {
-      margin: 0;
-    }
-
-    #app {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    </style>
+    <div>
+      <small>Dense</small>
+      <md-button class="md-dense md-primary">Flat</md-button>
+      <md-button class="md-dense md-raised md-primary">Raised</md-button>
+    </div>
+  </div>
+</template>
