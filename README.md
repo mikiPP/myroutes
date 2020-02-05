@@ -1,26 +1,25 @@
 # MYROUTES
 
-### ¿Que es myroutes?
+### ¿What is myroutes?
 
-myroutes es una aplicación la cual al principio generará rutas predeterminadas de diversos tipos que pueden ser gastronómicas, culturales,ocio o la combinación de algunas o de todas ellas. Para usar la aplicación los usuarios tendrán que registrarse. A medida que los primeros usuarios realizan los primeros pasos de la ruta,podremos monitorizar la ruta que ellos hacen, y  estudiar el perfil de usuarios que son.Con lo cual, cuando otro usuario de perfil similar empiece la misma ruta, podremos sugerirle estos nuevos sitios. A parte, para generar rutas automáticamente también se puede hacer un seguimiento de próximos eventos a tener en cuenta (sobretodo en el apartado cultural y gastronómico.) O, podemos ver dónde y cuándo hay más personas en algún lugar, ya sea un nuevo restaurante o un nuevo pueblo de moda, para así poderlo añadir a nuestras rutas.También se propondrán diferentes sitios o cosas dependiendo del sitio en el que estamos P.E comida típica del lugar, monumentos famosos...  
+myroutes is an application which at the beginning will generate predetermined routes of various types that can be gastronomic, cultural, leisure or the combination of some or all of them. To use the application users will have to register. As the first users make the first steps of the route, we can monitor the route they make, and study the profile of users they are.With which, when another user with a similar profile starts the same route, we can suggest these new ones sites. In addition, to automatically generate routes you can also keep track of upcoming events to take into account (especially in the cultural and gastronomic section.) Or, we can see where and when there are more people somewhere, either a new restaurant or a new fashionable town, in order to be able to add it to our routes. Different places or things will also be proposed depending on the place where we are typical food of the place, famous monuments ...
 
-Conclusión:
+Conclusion:
 
-La aplicación será una utilidad cuando no sepas que hacer o dónde ir.Siempre estará buscando nuevas alternativas para entretenr al usuario y que este siempre tenga algo que hacer o algún sitio a donde ir basado en su perfil.
-
-
-### ¿En que nos diferenciamos?
-
-Nuestra aplicación destaca por ser lo más próximo posible al usuario,intentando ofrecerle al usuario lo que busca sin tener que pedirlo ni perder el tiempo.
-Si este usuario sigue la ruta la aplicación enviará notificaciones con los monumentos y sus detalles e historia, además las rutas serán modificadas durante, dicho trayecto ya sea, para desvíos para comer o para hacer la ruta más directa o añadiendo sugerencias teniendo en cuenta que han hecho los anteriores usuarios que han hecho la ruta y tienen un perfil similar
-A su vez, la aplicación enviará notificaciones durante los días anteriores a los festivos o fines de semana con diferentes rutas y fotos de los lugares más bonitos de esa ruta para que el usuario se planifique para realizar estos planes.
-La aplicación será capaz de saber cuando sales de tu rutina para poder enviarte las notificaciones
+The application will be a utility when you do not know what to do or where to go. You will always be looking for new alternatives to entertain the user and that he always has something to do or somewhere to go based on his profile.
 
 
-### Tecnologías que usaremos:
+### How we differ?
 
-- @vue/cli 4.1.2 Y vue-material.
+Our application stands out for being as close as possible to the user, trying to offer the user what they are looking for without having to ask for it or waste time.
+If this user follows the route the application will send notifications with the monuments and their details and history, in addition the routes will be modified during, said route either, for detours to eat or to make the route more direct or adding suggestions taking into account that they have made the previous users who have made the route and have a similar profile
+In turn, the application will send notifications during the days before holidays or weekends with different routes and photos of the most beautiful places on that route for the user to plan to make these plans.
+The application will be able to know when you leave your routine to be able to send you notifications
 
-### Metodologías: 
+### Technologies we use:
 
-- Mobile first y añadimos su mockup de referencia.
+- @ vue / cli 4.1.2 And vue-material.
+
+### Methodologies: 
+
+- Mobile first and we add your reference mockup.
