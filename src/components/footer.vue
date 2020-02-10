@@ -1,20 +1,18 @@
 <template>
-  <footer>
-    <div class="grid-container">
-      <div class="grid-item">
-        <b-icon-arrow-left></b-icon-arrow-left>
-        <p>Go back</p>
-      </div>
-      <div class="grid-item">
-        <b-icon-map></b-icon-map>
-        <P>My routes</P>
-      </div>
-      <div class="grid-item">
-        <b-icon-person-fill></b-icon-person-fill>
-        <p>Me</p>
-      </div>
+  <div class="grid-container">
+    <div class="grid-item">
+      <b-icon-arrow-left></b-icon-arrow-left>
+      <p>Go back</p>
     </div>
-  </footer>
+    <div class="grid-item">
+      <b-icon-map></b-icon-map>
+      <P>My routes</P>
+    </div>
+    <div class="grid-item">
+      <b-icon-person-fill></b-icon-person-fill>
+      <p>Me</p>
+    </div>
+  </div>
 </template>
 
 
