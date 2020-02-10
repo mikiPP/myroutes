@@ -1,36 +1,26 @@
 <template>
-  <div>
+ <div>
     <navbar></navbar>
-    <div>
-      <small>Flat</small>
-      <md-button>Default</md-button>
-      <md-button :md-ripple="false">Ripple Off</md-button>
-      <md-button class="md-primary">Primary</md-button>
-      <md-button class="md-accent">Accent</md-button>
-      <md-button disabled>Disabled</md-button>
-    </div>
-    <router-view></router-view>
-    <div>
-      <small>Raised</small>
-      <md-button class="md-raised">Default</md-button>
-      <md-button class="md-raised" :md-ripple="false">Ripple Off</md-button>
-      <md-button class="md-raised md-primary">Primary</md-button>
-      <md-button class="md-raised md-accent">Accent</md-button>
-      <md-button class="md-raised" disabled>Disabled</md-button>
-    </div>
 
-    <div>
-      <small>Dense</small>
-      <md-button class="md-dense md-primary">Flat</md-button>
-      <md-button class="md-dense md-raised md-primary">Raised</md-button>
-    </div>
     <footerApp></footerApp>
   </div>
 </template>
+
 <script>
 import navbar from "./components/navbar";
 import footerApp from "./components/footer";
 export default {
-  components: { navbar, footerApp }
+  components: { navbar, footerApp}
 };
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
