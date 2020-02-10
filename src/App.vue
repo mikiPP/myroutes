@@ -1,19 +1,17 @@
 <template>
-<navbar></navbar>
-  <!-- <div id="app">
+ <div>
+    <navbar></navbar>
+
+    <footerApp></footerApp>
   </div>
-   -->
 </template>
 
 <script>
-import navbar from './components/navbar'
-
+import navbar from "./components/navbar";
+import footerApp from "./components/footer";
 export default {
-  name: 'App',
-  components: {
-    navbar
-  }
-}
+  components: { navbar, footerApp}
+};
 </script>
 
 <style>
