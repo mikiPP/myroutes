@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar></navbar>
     <div>
       <small>Flat</small>
       <md-button>Default</md-button>
@@ -8,7 +9,7 @@
       <md-button class="md-accent">Accent</md-button>
       <md-button disabled>Disabled</md-button>
     </div>
-
+  <router-view></router-view>
     <div>
       <small>Raised</small>
       <md-button class="md-raised">Default</md-button>
@@ -25,3 +26,9 @@
     </div>
   </div>
 </template>
+<script>
+import navbar from "./components/navbar";
+export default {
+  components: { navbar }
+};
+</script>
