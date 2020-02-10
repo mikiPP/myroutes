@@ -10,11 +10,11 @@
 
         <div class="md-toolbar-section-end">
           <md-button class="md-icon-button">
-            <md-icon>culing</md-icon>
+            <md-icon>Test</md-icon>
           </md-button>
 
           <md-button class="md-icon-button">
-            <md-icon>culo</md-icon>
+            <md-icon>Tittle</md-icon>
           </md-button>
         </div>
       </div>
@@ -27,9 +27,9 @@
 </template>
 
 <style lang="css" scoped>
-  .md-toolbar + .md-toolbar {
-    margin-top: 16px;
-  }
+.md-toolbar + .md-toolbar {
+  margin-top: 16px;
+}
 </style>
 
 <script>
@@ -38,4 +38,3 @@ export default {
 };
 </script>
 
-<style></style>script
