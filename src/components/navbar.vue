@@ -1,40 +1,43 @@
 <template>
-  <div>
-    <md-toolbar class="md-large md-primary">
-      <div class="md-toolbar-row">
-        <div class="md-toolbar-section-start">
-          <md-button class="md-icon-button">
-            <md-icon>menu</md-icon>
-          </md-button>
-        </div>
-
-        <div class="md-toolbar-section-end">
-          <md-button class="md-icon-button">
-            <md-icon>Test</md-icon>
-          </md-button>
-
-          <md-button class="md-icon-button">
-            <md-icon>Tittle</md-icon>
-          </md-button>
-        </div>
-      </div>
-
-      <div class="md-toolbar-row md-toolbar-offset">
-        <h3 class="md-title">Title on a second row</h3>
-      </div>
-    </md-toolbar>
-  </div>
+  <nav>
+    <div id="navbar">
+      <img src="./../assets/logo.png" alt="myroutes">
+    </div>
+    <Reveal right>
+      <a id="home" href="#">
+        <span>Home</span>
+      </a>
+      <a id="home" href="#">
+        <span>Login</span>
+      </a>
+      <a id="home" href="#">
+        <span>Historial</span>
+      </a>
+      <a id="home" href="#">
+        <span>prueba</span>
+      </a>
+    </Reveal>
+  </nav>
 </template>
 
-<style lang="css" scoped>
-.md-toolbar + .md-toolbar {
-  margin-top: 16px;
+<style>
+#navbar {
+  background-color: #303F9F;
+  width: auto;
+}
+
+reveal {
+  display: flex;
+  justify-content: right;
 }
 </style>
 
 <script>
+import { Reveal } from "vue-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide`
+
 export default {
-  element: "navbar"
+  components: {
+    Reveal
+  }
 };
 </script>
-
