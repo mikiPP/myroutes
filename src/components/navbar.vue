@@ -1,34 +1,39 @@
 <template>
   <nav>
     <div id="navbar">
-      <img src="./../assets/logo.png" alt="myroutes">
+      <img src="./../assets/logo.png" alt="myroutes" />
     </div>
-    <Reveal right>
-      <a id="home" href="#">
-        <span>Home</span>
-      </a>
-      <a id="home" href="#">
-        <span>Login</span>
-      </a>
-      <a id="home" href="#">
-        <span>Historial</span>
-      </a>
-      <a id="home" href="#">
-        <span>prueba</span>
-      </a>
-    </Reveal>
+    <div id="hamburger">
+      <Reveal right>
+        <a id="home" href="#">
+          <span>Home</span>
+        </a>
+        <a id="home" href="#">
+          <span>Login</span>
+        </a>
+        <a id="home" href="#">
+          <span>Historial</span>
+        </a>
+        <a id="home" href="#">
+          <span>prueba</span>
+        </a>
+      </Reveal>
+    </div>
   </nav>
 </template>
 
 <style>
-#navbar {
-  background-color: #303F9F;
-  width: auto;
-}
 
-reveal {
-  display: flex;
-  justify-content: right;
+nav {
+  width:0, auto;
+}
+#navbar {
+  background-color: #303f9f;
+}
+#hamburger {
+  position: relative;
+  
+  bottom: 10em;
 }
 </style>
 
