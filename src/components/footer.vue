@@ -20,13 +20,13 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #ffffff;
+  background-color: #303f9f;
   padding: 10px;
   border-top: 2px solid #666666;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: auto;
 }
 
 .grid-item {

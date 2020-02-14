@@ -1,24 +1,32 @@
 import Vue from "vue";
 import App from "./App.vue";
-import VueMaterial from "vue-material";
-import "vue-material/dist/vue-material.min.css";
-import 'vue-material/dist/theme/default.css'
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import VueRouter from "vue-router";
+import login from "./components/login.vue"; 
 
+//src/main.js
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+//import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
-Vue.use(VueMaterial);
-
-
-// Importing the Rhea PrimeVue theme styles
-import "primevue/resources/themes/rhea/theme.css";
-
-// Importing the base PrimeVue component styles
-import "primevue/resources/primevue.min.css";
-
-// Importing the base PrimeIcon styles
-import "primeicons/primeicons.css";
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 
+Vue.use(VueRouter);
+
+export const router = new VueRouter({
+  base: "/",
+  mode: "history",
+  routes: [
+    { path: "/", component: login },
+    { path: "/login", component: login }
+  ]
+  // { path: '/', component: Home }
+});
+
 new Vue({
+  router,
   render: h => h(App)
 }).$mount("#app");
