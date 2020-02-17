@@ -1,15 +1,15 @@
 <template>
   <div class="grid-container">
     <div class="grid-item">
-      <b-icon-arrow-left></b-icon-arrow-left>
+      <b-icon-arrow-left class="icon"></b-icon-arrow-left>
       <p>Go back</p>
     </div>
     <div class="grid-item">
-      <b-icon-map></b-icon-map>
+      <b-icon-map class="icon"></b-icon-map>
       <P>My routes</P>
     </div>
     <div class="grid-item">
-      <b-icon-person-fill></b-icon-person-fill>
+      <b-icon-person-fill class="icon"></b-icon-person-fill>
       <p>Me</p>
     </div>
   </div>
@@ -21,7 +21,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: #303f9f;
-  padding: 10px;
   border-top: 2px solid #666666;
   position: absolute;
   bottom: 0;
@@ -31,8 +30,12 @@
 
 .grid-item {
   padding: 20px;
-  font-size: 1.5em;
   text-align: center;
+  font-size: 1em;
+}
+
+.icon {
+  font-size: 2.5em;
 }
 </style>
 
