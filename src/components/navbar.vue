@@ -4,13 +4,13 @@
       <img src="./../assets/logo.png" alt="myroutes" />
     </div>
     <div id="hamburger">
-      <Reveal right>
+      <Reveal right  width="200">
         <a id="home" href="#">
           <span>Home</span>
         </a>
-        <a id="home" href="#">
-          <span>Login</span>
-        </a>
+        <router-link to="/login">
+        <span>Login</span>
+        </router-link>
         <a id="home" href="#">
           <span>Historial</span>
         </a>
@@ -30,10 +30,13 @@ nav {
 #navbar {
   background-color: #303f9f;
 }
+#navbar > img {
+  width: 120px;
+  height: 120px;
+  margin-left: 3%;
+}
 #hamburger {
-  position: relative;
-  
-  bottom: 10em;
+  margin-top: 25px;
 }
 </style>
 
