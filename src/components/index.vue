@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div id="index" class="main">
     <h1>myroutes</h1>
     <div id="buttons">
       <b-button id="sign-up" variant="success">Sign up</b-button>
@@ -35,6 +35,15 @@
 </style>
 <script>
 export default {
-  element: "index"
+  element: "index",
+  mounted: function() {
+    document.getElementById("buttons").addEventListener("click", event => {
+      if (event.target.id === "sign-up") {
+        console.log("sign-up");
+      } else if (event.target.id === "login") {
+        console.log("login");
+      }
+    });
+  }
 };
 </script>
