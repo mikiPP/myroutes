@@ -2,17 +2,17 @@
   <div>
     <!-- <router-link to="/">Home</router-link>
     <router-link to="/login">Login</router-link> -->
-    <navbar></navbar>
+    <!-- <navbar></navbar> -->
     <router-view></router-view>
-    <footerApp></footerApp>
+    <!-- <footerApp></footerApp> -->
   </div>
 </template>
 
 <script>
-import navbar from "./components/navbar";
-import footerApp from "./components/footer";
+//import navbar from "./components/navbar";
+//import footerApp from "./components/footer";
 export default {
-  components: { navbar, footerApp }
+  //components: { navbar, footerApp }
 };
 </script>
 
