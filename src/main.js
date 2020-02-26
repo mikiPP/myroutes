@@ -7,6 +7,7 @@ import VueRouter from "vue-router";
 //src/main.js
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "./assets/styles/main.css";
 //import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
 Vue.use(BootstrapVue);

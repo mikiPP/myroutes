@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container full-page">
     <div class="form-card card-container">
       <img alt class="card-img" id="profile-img" src="../assets/logo.png" />
       <p id="profile-name" class="profile-name-card"></p>
@@ -42,7 +42,6 @@ export default {
 </script>
 
 <style scoped>
-/*------------------ AUTH FORM STYLE  ------------------ */
 .card-container.form-card {
   max-width: 350px;
   padding: 40px 40px;
@@ -61,15 +60,10 @@ export default {
  * Card component
  */
 .form-card {
-  background-color: #303f9f;
-  /* just in case there no content*/
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
+  background-color: #3f51b5;
   /* shadows and rounded borders */
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-  border: 3px solid;
   border-radius: 2px;
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
