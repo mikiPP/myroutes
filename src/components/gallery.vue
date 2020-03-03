@@ -39,7 +39,7 @@
 
 
 <script>
-import * as httpRequest from "../assets/js/httpRequest.js";
+import  makeHttpRequest from "../assets/js/httpRequest.js";
 import navbar from "./navbar";
 import footerApp from "./footer";
 
@@ -51,7 +51,7 @@ export default {
 
     const galleryContainer = document.getElementById("gallery-container");
 
-    httpRequest("https://jsonplaceholder.typicode.com/photos", "GET").then(
+    makeHttpRequest("https://jsonplaceholder.typicode.com/photos", "GET").then(
       data => {
         const images = Array.from(data.slice(0, 30));
         images.forEach(element => {

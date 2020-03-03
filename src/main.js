@@ -21,10 +21,11 @@ export const router = new VueRouter({
   base: "/",
   mode: "history",
   routes: [
-    { path: "/home", name:"home", component: () => import(/*webpackChunkName: "home"*/"./components/index.vue")},
+    { path: "/index", name:"index", component: () => import(/*webpackChunkName: "index"*/"./components/index.vue")},
     { path: "/singup", name:"singup", component: () => import(/*webpackChunkName: "singup"*/"./components/singUp.vue")},
-    { path: "/login", name:"login", component: () => import(/*webpackChunkName: "singup"*/"./components/login.vue")},
-    { path: "/**", name:"home", component: () => import(/*webpackChunkName: "home"*/"./components/index.vue")},
+    { path: "/login", name:"login", component: () => import(/*webpackChunkName: "login"*/"./components/login.vue")},
+    { path: "/gallery", name:"gallery", component: () => import(/*webpackChunkName: "gallery"*/"./components/gallery.vue")},
+    { path: "/**", name:"index", component: () => import(/*webpackChunkName: "index"*/"./components/index.vue")},
     // { path: "/login", component: login }
   ]
   // { path: '/', component: Home }

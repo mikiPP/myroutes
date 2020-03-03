@@ -7,8 +7,10 @@
       <b-form-group
         id="input-group-1"
         label="Email address:"
-        label-for="input-1"
-      >
+        label-for="input-1">
+
+      <b-alert :show="this.showAlert" variant="success">Creado correctamente</b-alert>
+
         <b-form-input
           id="input-1"
           v-model="form.email"
@@ -47,8 +49,7 @@
           {{ form.edad > this.edadMaxima ? "mayor" : "menor" }} que
           {{ this.edadMaxima }}</b-form-invalid-feedback
         >
-        <div class="mt-2">Value: {{ form.edad }}</div>
-      </b-form-group>
+        </b-form-group>
 
       <b-container class="bv-example-row">
         <b-row>
@@ -100,13 +101,13 @@
       Submit</b-button>
       <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
+
   </div>
 </template>
 
 <script>
+import setTimer from "../assets/js/utils";
+
 export default {
   data() {
     return {
@@ -122,15 +123,21 @@ export default {
       añoIntroducido: null,
       edadMaxima: 100,
       edadMinima: 1,
-      añoActual: new Date().getFullYear()
+      añoActual: new Date().getFullYear(),
+      showAlert:false
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       if (this.validForm()) {
-        alert(JSON.stringify(this.form));
+        setTimer(3000)
+        .then( () => {
+          this.showAlert = true
+          //alert(JSON.stringify(this.form))
+        })
       }
+      this.showAlert = false;
     },
     validForm() {
       let elementosValidos = 0;
