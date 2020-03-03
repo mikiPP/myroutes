@@ -2,8 +2,8 @@
   <div id="index" class="main full-page">
     <h1>myroutes</h1>
     <div id="buttons">
-      <b-button id="sign-up" variant="success">Sign up</b-button>
-      <b-button id="login" variant="success">Login</b-button>
+      <b-button id="sign-up" to="/singup" variant="success">Sign up</b-button>
+      <b-button id="login" to="login" variant="success">Login</b-button>
     </div>
   </div>
 </template>
