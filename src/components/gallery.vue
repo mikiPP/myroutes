@@ -3,7 +3,11 @@
     <navbar></navbar>
     <div class="container">
       <!-- ADD SELECT BUTTON -->
-
+      <select name="select" class="mb-2" id="chooseRoute">
+        <option value="value1">Value 1</option>
+        <option value="value2" selected>Value 2</option>
+        <option value="value3">Value 3</option>
+      </select>
       <div id="gallery-container"></div>
     </div>
     <footerApp class="footer"></footerApp>
@@ -40,8 +44,11 @@
 
 <script>
 import makeHttpRequest from "../assets/js/httpRequest.js";
+import { Utils } from "../assets/js/utils.js";
 import navbar from "./navbar";
 import footerApp from "./footer";
+
+const utils = new Utils();
 
 export default {
   element: "gallery",
@@ -86,7 +93,12 @@ export default {
     }
   },
   mounted: function() {
-    this.fetchImages();
+    const chooseRoute = document.getElementById("chooseRoute");
+
+    chooseRoute.addEventListener("click", () => {
+      utils.setTimer(1000).then(() => this.fetchImages());
+    });
+
     window.addEventListener("scroll", () => {
       if (
         document.body.getBoundingClientRect().bottom <
