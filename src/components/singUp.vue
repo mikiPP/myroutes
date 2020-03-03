@@ -1,15 +1,9 @@
 <template>
   <div id="app">
-    <nav>
-      Myroutes
-    </nav>
+    <nav>Myroutes</nav>
     <b-form id="form" @submit="onSubmit" v-if="show">
-      <b-form-group
-        id="input-group-1"
-        label="Email address:"
-        label-for="input-1">
-
-      <b-alert :show="this.showAlert" variant="success">Creado correctamente</b-alert>
+      <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
+        <b-alert :show="this.showAlert" variant="success">Creado correctamente</b-alert>
 
         <b-form-input
           id="input-1"
@@ -29,8 +23,7 @@
           :state="validName()"
           placeholder="nombre apellido apellido"
         ></b-form-input>
-         <b-form-invalid-feedback id="input-live-feedback">El nombre {{form.name}} es incorrecto
-         </b-form-invalid-feedback>
+        <b-form-invalid-feedback id="input-live-feedback">El nombre {{form.name}} es incorrecto</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group id="input-group-3" label="Tu edad:" label-for="input-3">
@@ -44,25 +37,21 @@
           min="1"
           max="100"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback"
-          >La edad {{ form.edad }} es
+        <b-form-invalid-feedback id="input-live-feedback">
+          La edad {{ form.edad }} es
           {{ form.edad > this.edadMaxima ? "mayor" : "menor" }} que
-          {{ this.edadMaxima }}</b-form-invalid-feedback
-        >
-        </b-form-group>
+          {{ this.edadMaxima }}
+        </b-form-invalid-feedback>
+      </b-form-group>
 
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
-            <b-form-radio-group
-              label="Genero"
-              v-model="form.genero"
-              id="genero"
-            >
+            <b-form-radio-group label="Genero" v-model="form.genero" id="genero">
               <b-form-radio name="radio" value="Hombre">hombre</b-form-radio>
               <b-form-radio name="radio" value="Mujer">mujer</b-form-radio>
-            </b-form-radio-group></b-col
-          >
+            </b-form-radio-group>
+          </b-col>
           <b-col>
             <b-form-input
               v-model="form.fechaNacimiento"
@@ -70,18 +59,17 @@
               :state="validDate()"
               type="date"
               placeholder="2"
-            >
-            </b-form-input>
+            ></b-form-input>
             <!--mensaje de error-->
-            <b-form-invalid-feedback id="input-live-feedback"
-              >El año introducido {{ this.form.fechaNacimiento }}
+            <b-form-invalid-feedback id="input-live-feedback">
+              El año introducido {{ this.form.fechaNacimiento }}
               {{
-                this.añoIntroducido > 1900 ? " es superior " : " es inferior "
+              this.añoIntroducido > 1900 ? " es superior " : " es inferior "
               }}
               al año {{ añoActual }} porfavor cambie el
-              año</b-form-invalid-feedback
-            ></b-col
-          >
+              año
+            </b-form-invalid-feedback>
+          </b-col>
         </b-row>
       </b-container>
 
@@ -92,21 +80,17 @@
         required
         value="true"
         unchecked-value="false"
-      >
-        Acepto los terminos y condiciones
-      </b-form-checkbox>
+      >Acepto los terminos y condiciones</b-form-checkbox>
 
-      <b-button type="submit" variant="primary" 
-     :disabled="!this.validForm()">
-      Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="!this.validForm()">Submit</b-button>
       <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
-
   </div>
 </template>
 
 <script>
-import setTimer from "../assets/js/utils";
+import { Utils } from "../assets/js/utils.js";
+const utils = new Utils();
 
 export default {
   data() {
@@ -124,18 +108,18 @@ export default {
       edadMaxima: 100,
       edadMinima: 1,
       añoActual: new Date().getFullYear(),
-      showAlert:false
+      showAlert: false
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       if (this.validForm()) {
-        setTimer(3000)
-        .then( () => {
-          this.showAlert = true
-          //alert(JSON.stringify(this.form))
-        })
+        utils.setTimer(3000).then(() => {
+          this.showAlert = true;
+          utils.setItem("user", this.form.name);
+          utils.setItem("email", this.form.email);
+        });
       }
       this.showAlert = false;
     },
@@ -169,18 +153,22 @@ export default {
         }
         return resultado;
       }
-    },validMail(){
+    },
+    validMail() {
       let resultado = false;
       //mejorar expresion
-      const regex = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+      const regex = new RegExp(
+        "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+      );
       if (this.form.email) {
         if (regex.test(this.form.email)) {
-        resultado = true;  
+          resultado = true;
+          resultado = true;
+          resultado = true;
         }
         return resultado;
       }
-    }
-    ,
+    },
     validAge() {
       let resultado = false;
       if (this.form.edad) {
@@ -190,14 +178,21 @@ export default {
         }
         return resultado;
       }
-    },validName(){
+    },
+    validName() {
       let resultado = false;
-      let expreg = new RegExp(`^([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\']+[\\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\'])+[\\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\']){0}?$`);
-      if (this.form.name) { 
-        if (this.form.name.length > 3 && expreg.test(this.form.name) && this.form.name.length < 35 ) {
+      let expreg = new RegExp(
+        `^([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\']+[\\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\'])+[\\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\\']){0}?$`
+      );
+      if (this.form.name) {
+        if (
+          this.form.name.length > 3 &&
+          expreg.test(this.form.name) &&
+          this.form.name.length < 35
+        ) {
           resultado = true;
         }
-         return resultado;
+        return resultado;
       }
     }
 
