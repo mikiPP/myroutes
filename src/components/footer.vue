@@ -22,8 +22,6 @@
   grid-template-columns: repeat(3, 1fr);
   background-color: #303f9f;
   border-top: 2px solid #666666;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: auto;
 }
