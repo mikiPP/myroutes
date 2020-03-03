@@ -39,22 +39,26 @@
 
 
 <script>
-import  makeHttpRequest from "../assets/js/httpRequest.js";
+import makeHttpRequest from "../assets/js/httpRequest.js";
 import navbar from "./navbar";
 import footerApp from "./footer";
 
 export default {
   element: "gallery",
+  data() {
+    return {
+      index: 0,
+      numberOfImagesToCharge: 30,
+      images: null
+    };
+  },
   components: { navbar, footerApp },
-  mounted: function() {
-    // here we should add add event lisener to the option value
-
-    const galleryContainer = document.getElementById("gallery-container");
-
-    makeHttpRequest("https://jsonplaceholder.typicode.com/photos", "GET").then(
-      data => {
-        const images = Array.from(data.slice(0, 30));
-        images.forEach(element => {
+  methods: {
+    chargeImages() {
+      const galleryContainer = document.getElementById("gallery-container");
+      this.images
+        .slice(this.index, this.index + this.numberOfImagesToCharge)
+        .forEach(element => {
           const div = document.createElement("div");
           div.classList.add("card");
 
@@ -69,8 +73,28 @@ export default {
 
           galleryContainer.appendChild(div);
         });
+      this.index += this.numberOfImagesToCharge;
+    },
+    fetchImages() {
+      makeHttpRequest(
+        "https://jsonplaceholder.typicode.com/photos",
+        "GET"
+      ).then(data => {
+        this.images = data;
+        this.chargeImages();
+      });
+    }
+  },
+  mounted: function() {
+    this.fetchImages();
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.getBoundingClientRect().bottom <
+        document.documentElement.clientHeight + 150
+      ) {
+        this.chargeImages();
       }
-    );
+    });
   }
 };
 </script>
