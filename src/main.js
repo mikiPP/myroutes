@@ -22,6 +22,7 @@ export const router = new VueRouter({
   routes: [
     { path: "/home", name:"home", component: () => import(/*webpackChunkName: "home"*/"./components/index.vue")},
     { path: "/singup", name:"singup", component: () => import(/*webpackChunkName: "singup"*/"./components/singUp.vue")},
+    { path: "/login", name:"login", component: () => import(/*webpackChunkName: "singup"*/"./components/login.vue")},
     { path: "/**", name:"home", component: () => import(/*webpackChunkName: "home"*/"./components/index.vue")},
     // { path: "/login", component: login }
   ]
