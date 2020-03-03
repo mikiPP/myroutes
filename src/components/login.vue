@@ -1,5 +1,5 @@
 <template>
-  <div class="container full-page">
+  <div class="main full-page">
     <div class="form-card card-container">
       <img alt class="card-img" id="profile-img" src="../assets/logo.png" />
       <p id="profile-name" class="profile-name-card"></p>
@@ -13,6 +13,7 @@
           formControlName="email"
           required
           autofocus
+          v-model="form.email"
         />
         <input
           type="password"
@@ -21,34 +22,61 @@
           placeholder="Contraseña"
           formControlName="password"
           required
+          v-model="form.password"
         />
         <b-button class="btn-block btn-form" type="submit" variant="success">Login</b-button>
       </form>
-      <p v-if="false" class="text-danger">El usuario y/o contraseña son incorrectos</p>
+      <b-alert :show="this.tried" variant="danger">{{message}}</b-alert>
     </div>
   </div>
 </template>
 
 <script>
+import { Utils } from "../assets/js/utils.js";
+const utils = new Utils();
+
 export default {
+  data() {
+    return {
+      form: {
+        email: null,
+        password: null
+      },
+      message: "Your credentials are not valid for this user and password",
+      tried: false
+    };
+  },
   element: "login",
   mounted: function() {
     document.getElementById("login").addEventListener("submit", event => {
       event.preventDefault();
-      console.log("Navigate to home..");
+      if (
+        utils.getItem("email") === this.form.email &&
+        utils.getItem("password") === this.form.password
+      ) {
+        console.log("Navigate");
+      } else {
+        this.tried = true;
+      }
     });
   }
 };
 </script>
 
 <style scoped>
-.card-container.form-card {
-  max-width: 350px;
+.card-img {
+  width: auto;
+}
+
+.card-container {
+  background-color: #303f9f;
   padding: 40px 40px;
+  height: 100%;
+  text-align: center;
 }
 
 .form-btn {
-  font-weight: 700;
+  font-weight: 2em;
   height: 36px;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -59,26 +87,6 @@ export default {
 /*
  * Card component
  */
-.form-card {
-  background-color: #3f51b5;
-  /* shadows and rounded borders */
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
 
 /*
  * Form styles
@@ -115,7 +123,6 @@ export default {
 
 .form-class input[type="email"],
 .form-class input[type="password"],
-.form-class input[type="text"],
 .form-class button {
   width: 100%;
   display: block;

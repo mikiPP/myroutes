@@ -3,7 +3,11 @@
     <navbar></navbar>
     <div class="container">
       <!-- ADD SELECT BUTTON -->
-
+      <select name="select" class="mb-2" id="chooseRoute">
+        <option value="value1">Value 1</option>
+        <option value="value2" selected>Value 2</option>
+        <option value="value3">Value 3</option>
+      </select>
       <div id="gallery-container"></div>
     </div>
     <footerApp class="footer"></footerApp>
@@ -39,22 +43,29 @@
 
 
 <script>
-import  makeHttpRequest from "../assets/js/httpRequest.js";
+import makeHttpRequest from "../assets/js/httpRequest.js";
+import { Utils } from "../assets/js/utils.js";
 import navbar from "./navbar";
 import footerApp from "./footer";
 
+const utils = new Utils();
+
 export default {
   element: "gallery",
+  data() {
+    return {
+      index: 0,
+      numberOfImagesToCharge: 30,
+      images: null
+    };
+  },
   components: { navbar, footerApp },
-  mounted: function() {
-    // here we should add add event lisener to the option value
-
-    const galleryContainer = document.getElementById("gallery-container");
-
-    makeHttpRequest("https://jsonplaceholder.typicode.com/photos", "GET").then(
-      data => {
-        const images = Array.from(data.slice(0, 30));
-        images.forEach(element => {
+  methods: {
+    chargeImages() {
+      const galleryContainer = document.getElementById("gallery-container");
+      this.images
+        .slice(this.index, this.index + this.numberOfImagesToCharge)
+        .forEach(element => {
           const div = document.createElement("div");
           div.classList.add("card");
 
@@ -69,8 +80,33 @@ export default {
 
           galleryContainer.appendChild(div);
         });
+      this.index += this.numberOfImagesToCharge;
+    },
+    fetchImages() {
+      makeHttpRequest(
+        "https://jsonplaceholder.typicode.com/photos",
+        "GET"
+      ).then(data => {
+        this.images = data;
+        this.chargeImages();
+      });
+    }
+  },
+  mounted: function() {
+    const chooseRoute = document.getElementById("chooseRoute");
+
+    chooseRoute.addEventListener("click", () => {
+      utils.setTimer(1000).then(() => this.fetchImages());
+    });
+
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.getBoundingClientRect().bottom <
+        document.documentElement.clientHeight + 150
+      ) {
+        this.chargeImages();
       }
-    );
+    });
   }
 };
 </script>
