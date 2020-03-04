@@ -83,13 +83,12 @@ export default {
       this.index += this.numberOfImagesToCharge;
     },
     fetchImages() {
-      makeHttpRequest(
-        "https://jsonplaceholder.typicode.com/photos",
-        "GET"
-      ).then(data => {
-        this.images = data;
-        this.chargeImages();
-      });
+      makeHttpRequest("https://jsonplaceholder.typicode.com/photos", "GET")
+        .then(data => {
+          this.images = data;
+          this.chargeImages();
+        })
+        .catch(error => alert(error));
     }
   },
   mounted: function() {
