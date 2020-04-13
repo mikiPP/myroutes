@@ -41,7 +41,7 @@
   border: black solid 2px !important;
 }
 
-#footer {
+.footer {
   position: absolute;
   bottom: 0;
 }

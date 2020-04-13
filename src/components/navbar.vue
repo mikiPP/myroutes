@@ -11,11 +11,8 @@
         <router-link to="/login">
         <span>Login</span>
         </router-link>
-        <a id="home" href="#">
-          <span>Historial</span>
-        </a>
-        <a id="home" href="#">
-          <span>prueba</span>
+        <a id="home" href="/gallery">
+          <span>Gallery</span>
         </a>
       </Reveal>
     </div>
