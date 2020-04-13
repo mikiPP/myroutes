@@ -1,12 +1,23 @@
 
 
-  function makeHttpRequest(url, method, data) {
+  function makeHttpRequest(url, method, body, headers) {
 
     return fetch(url , {
         method: method,
-        body: data
+        body,
+        headers
     }).then(response => {
-        return response.json();
+        if(200 <= response.status < 300) {
+            return response.json();
+        } else {
+          return response.json().then( error => {
+                 console.log(error);
+                 throw new Error("Something went wrong.... SERVER");
+             });
+        }
+    }).catch( err => {
+        console.log(err);
+        throw new Error("Something went wrong....");
     })
 }
 
