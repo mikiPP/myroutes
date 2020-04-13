@@ -27,4 +27,4 @@ node_modules/
 
 # Ignoring SCSS compiled files.
 *.css.map
-*.css
+*.scss

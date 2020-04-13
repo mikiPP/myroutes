@@ -15,15 +15,12 @@
   </div>
 </template>
 
-
 <style scoped>
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: #303f9f;
   border-top: 2px solid #666666;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: auto;
 }
@@ -32,10 +29,12 @@
   padding: 20px;
   text-align: center;
   font-size: 1em;
+  color: white;
 }
 
 .icon {
   font-size: 2.5em;
+  color: white;
 }
 </style>
 
@@ -44,4 +43,3 @@ export default {
   element: "footerApp"
 };
 </script>
-

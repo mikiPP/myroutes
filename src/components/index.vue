@@ -1,18 +1,15 @@
 <template>
-  <div id="index" class="main">
+  <div id="index" class="main full-page">
     <h1>myroutes</h1>
     <div id="buttons">
-      <b-button id="sign-up" variant="success">Sign up</b-button>
-      <b-button id="login" variant="success">Login</b-button>
+      <b-button id="sign-up" to="/singup" variant="success">Sign up</b-button>
+      <b-button id="login" to="login" variant="success">Login</b-button>
     </div>
   </div>
 </template>
 <style scoped>
 .main {
-  position: absolute;
   background-color: #303f9f;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-flow: column;
   align-items: center;
