@@ -70,37 +70,34 @@
         <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
       </b-form>
     </div>
-     <b-overlay :show="overlayShow" rounded="sm" v-if="tarjetas">
-       <h1>Estos resultados hemos encontrado</h1>
-        <div id="tarjetas" v-for="ruta in rutas" :key="ruta.nombre">
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;"> 
-            <b-row no-gutters>
-              <b-col md="6">
-                <b-card-img  
-                src = "https://okdiario.com/img/2020/01/13/las-5-playas-mas-bonitas-del-mundo-en-2020.jpg"  
-                alt = "Imagen"  abajo > 
-                </b-card-img > 
-              </b-col>
-              <b-col md="6">
-                <b-card-body>
-                  <b-card-title>
-                    {{ruta.nombre}}
-                  </b-card-title>
-                  <b-card-text>
-                    {{ruta.descripcion}}
-                  </b-card-text>
-                </b-card-body>
-              </b-col>
-            </b-row>
-          </b-card>
+    <b-overlay :show="overlayShow" rounded="sm" v-if="tarjetas">
+      <h1>Estos resultados hemos encontrado</h1>
+      <div id="tarjetas" v-for="ruta in rutas" :key="ruta.nombre">
+        <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+          <b-row no-gutters>
+            <b-col md="6">
+              <b-card-img :src="ruta.src" alt="Imagen" abajo> </b-card-img>
+            </b-col>
+            <b-col md="6">
+              <b-card-body>
+                <b-card-title>
+                  {{ ruta.nombre }}
+                </b-card-title>
+                <b-card-text>
+                  {{ ruta.descripcion }}
+                </b-card-text>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card>
+      </div>
+      <template id="overlay" v-slot:overlay>
+        <div class="text-center">
+          <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
+          <p id="cancel-label">Please wait...</p>
         </div>
-        <template id="overlay" v-slot:overlay>
-          <div class="text-center">
-            <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
-            <p id="cancel-label">Please wait...</p>
-          </div>
-        </template>
-      </b-overlay>
+      </template>
+    </b-overlay>
     <footerApp class="footer"></footerApp>
     <!--<b-modal v-model="overlayShow">Hello From Modal!</b-modal>-->
   </div>
@@ -119,7 +116,7 @@
   position: relative;
   top: 100px;
 }
-#tarjetas{
+#tarjetas {
   display: flex;
   justify-content: center;
   margin: 4px;
@@ -142,29 +139,41 @@ export default {
       search: {
         type: null,
         where: null,
-        date: null,
+        date: null
       },
       options: [
         { value: null, text: "Elige una opcion", disabled: true },
         { value: true, text: "Montaña" },
         { value: true, text: "Bosque" },
         { value: true, text: "Playa" },
-        { value: true, text: "Mixto" },
+        { value: true, text: "Mixto" }
       ],
-      rutas:[{nombre:"playa", descripcion:"playa de mallorca",src: "../assets/images/imagen.jpg"},
-      {nombre:"playa2", descripcion:"playa de mallorca2",src: "https://okdiario.com/img/2020/01/13/las-5-playas-mas-bonitas-del-mundo-en-2020.jpg"}],
+      rutas: [
+        {
+          nombre: "playa",
+          descripcion: "playa de mallorca",
+          src:
+            "https://www.abc-mallorca.es/wp-content/uploads/2012/02/cala-mondrago-best-beaches.jpg"
+        },
+        {
+          nombre: "playa2",
+          descripcion: "playa de mallorca2",
+          src:
+            "https://okdiario.com/img/2020/01/13/las-5-playas-mas-bonitas-del-mundo-en-2020.jpg"
+        }
+      ],
       show: true,
-      overlayShow:false,
-      tarjetas:false
+      overlayShow: false,
+      tarjetas: false
     };
   },
   components: { navbar, footerApp },
   methods: {
     openOverlay() {
       if (this.validfields()) {
-         this.tarjetas =true;
-         this.overlayShow = true;
-         this.show = false;
+        this.tarjetas = true;
+        this.overlayShow = true;
+        this.show = false;
         utils.setTimer(3000).then(() => {
           this.overlayShow = false;
         });
@@ -189,9 +198,9 @@ export default {
       if (this.search.where) {
         return true;
       }
-    },
+    }
   },
 
-  mounted: function () {},
+  mounted: function() {}
 };
 </script>

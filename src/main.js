@@ -2,16 +2,19 @@ import Vue from "vue";
 import App from "./App.vue";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import VueRouter from "vue-router";
-// import login from "./components/login.vue"; 
 
-//src/main.js
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./assets/styles/main.css";
-//import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
+import { BContainer, BRow, BCol } from "bootstrap-vue";
+
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+Vue.component('b-container', BContainer)
+Vue.component('b-row', BRow)
+Vue.component('b-col', BCol)
+
 
 Vue.config.productionTip = false;
 

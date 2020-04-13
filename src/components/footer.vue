@@ -15,7 +15,6 @@
   </div>
 </template>
 
-
 <style scoped>
 .grid-container {
   display: grid;
@@ -30,10 +29,12 @@
   padding: 20px;
   text-align: center;
   font-size: 1em;
+  color: white;
 }
 
 .icon {
   font-size: 2.5em;
+  color: white;
 }
 </style>
 
@@ -42,4 +43,3 @@ export default {
   element: "footerApp"
 };
 </script>
-
