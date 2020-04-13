@@ -2,15 +2,39 @@
   <div>
     <navbar></navbar>
     <div class="container">
-      <!-- ADD SELECT BUTTON -->
-      <select name="select" class="mb-2" id="chooseRoute">
-        <option value="value1">Value 1</option>
-        <option value="value2" selected>Value 2</option>
-        <option value="value3">Value 3</option>
-      </select>
-      <div id="gallery-container"></div>
+      <!-- SELECT BUTTON -->
+      <div class="mb-2">
+        <b-dropdown
+          name="select"
+          class="m-mb-2"
+          text="Choose a route ! "
+          id="chooseRoute"
+        >
+          <b-dropdown-item v-for="element in [1, 2, 3, 4]" :key="element"
+            >Value {{ element }}</b-dropdown-item
+          >
+        </b-dropdown>
+      </div>
+      <!-- END SELECT BUTTON -->
+
+      <!-- GALLERY -->
+
+      <b-overlay :show="overlayShow" rounded="sm" v-if="index != -1">
+        <h1>This are the pictures from the route selected</h1>
+        <div id="gallery-container"></div>
+        <template id="overlay" v-slot:overlay>
+          <div class="text-center">
+            <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
+            <p id="cancel-label">Please wait...</p>
+          </div>
+        </template>
+      </b-overlay>
     </div>
-    <footerApp class="footer"></footerApp>
+    <!-- END GALLERY -->
+
+    <div v-if="index === -1">
+      <footerApp id="footer"></footerApp>
+    </div>
   </div>
 </template>
 
@@ -34,13 +58,15 @@
   border: black solid 2px !important;
 }
 
-.footer {
+#footer {
   position: absolute;
   bottom: 0;
 }
+
+.btn-secondary {
+  background-color: #303f9f !important;
+}
 </style>
-
-
 
 <script>
 import makeHttpRequest from "../assets/js/httpRequest.js";
@@ -54,13 +80,24 @@ export default {
   element: "gallery",
   data() {
     return {
-      index: 0,
+      show: true,
+      overlayShow: false,
+      index: -1,
       numberOfImagesToCharge: 30,
       images: null
     };
   },
   components: { navbar, footerApp },
   methods: {
+    openOverlay() {
+      this.index = 0;
+      this.overlayShow = true;
+      this.show = false;
+      this.fetchImages();
+      utils.setTimer(3000).then(() => {
+        this.overlayShow = false;
+      });
+    },
     chargeImages() {
       const galleryContainer = document.getElementById("gallery-container");
       this.images
@@ -83,20 +120,19 @@ export default {
       this.index += this.numberOfImagesToCharge;
     },
     fetchImages() {
-      makeHttpRequest(
-        "https://jsonplaceholder.typicode.com/photos",
-        "GET"
-      ).then(data => {
-        this.images = data;
-        this.chargeImages();
-      });
+      makeHttpRequest("https://jsonplaceholder.typicode.com/photos", "GET")
+        .then(data => {
+          this.images = data;
+          this.chargeImages();
+        })
+        .catch(error => alert(error));
     }
   },
   mounted: function() {
     const chooseRoute = document.getElementById("chooseRoute");
 
     chooseRoute.addEventListener("click", () => {
-      utils.setTimer(1000).then(() => this.fetchImages());
+      utils.setTimer(1000).then(() => this.openOverlay());
     });
 
     window.addEventListener("scroll", () => {
@@ -110,4 +146,3 @@ export default {
   }
 };
 </script>
-
