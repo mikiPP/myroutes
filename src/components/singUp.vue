@@ -8,9 +8,7 @@
         label-for="input-1"
         description="Cualquier email valido"
       >
-        <b-alert :show="this.showAlert" variant="success"
-          >Creado correctamente</b-alert
-        >
+        <b-alert :show="this.showAlert" variant="success">Creado correctamente</b-alert>
 
         <b-form-input
           id="input-1"
@@ -35,9 +33,7 @@
           :state="validName()"
           placeholder="nombre apellido apellido"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback"
-          >El nombre {{ form.name }} es incorrecto</b-form-invalid-feedback
-        >
+        <b-form-invalid-feedback id="input-live-feedback">El nombre {{ form.name }} es incorrecto</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group
@@ -73,18 +69,11 @@
           :state="validPass()"
           required
           placeholder="tu contraseña"
-        >
-        </b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback"
-          >contraseña 1</b-form-invalid-feedback
-        >
+        ></b-form-input>
+        <b-form-invalid-feedback id="input-live-feedback">contraseña 1</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group
-        label="Repite password:"
-        label-for="input-1"
-        description="Repite tu contraseña"
-      >
+      <b-form-group label="Repite password:" label-for="input-1" description="Repite tu contraseña">
         <b-form-input
           v-model="form.repeatPass"
           type="password"
@@ -92,19 +81,13 @@
           required
           placeholder="repite tu contraseña"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback"
-          >contraseña 2</b-form-invalid-feedback
-        >
+        <b-form-invalid-feedback id="input-live-feedback">contraseña 2</b-form-invalid-feedback>
       </b-form-group>
 
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
-            <b-form-radio-group
-              label="Genero"
-              v-model="form.genero"
-              id="genero"
-            >
+            <b-form-radio-group label="Genero" v-model="form.genero" id="genero">
               <b-form-radio name="radio" value="Hombre">hombre</b-form-radio>
               <b-form-radio name="radio" value="Mujer">mujer</b-form-radio>
             </b-form-radio-group>
@@ -121,7 +104,7 @@
             <b-form-invalid-feedback id="input-live-feedback">
               El año introducido {{ this.form.fechaNacimiento }}
               {{
-                this.añoIntroducido > 1900 ? " es superior " : " es inferior "
+              this.añoIntroducido > 1900 ? " es superior " : " es inferior "
               }}
               al año {{ añoActual }} porfavor cambie el año
             </b-form-invalid-feedback>
@@ -136,12 +119,10 @@
         required
         value="true"
         unchecked-value="false"
-        >Acepto los terminos y condiciones</b-form-checkbox
-      >
+        class="mt-4"
+      >Acepto los terminos y condiciones</b-form-checkbox>
 
-      <b-button type="submit" variant="primary" :disabled="!this.validForm()"
-        >Submit</b-button
-      >
+      <b-button class="mt-4" type="submit" variant="primary" :disabled="!this.validForm()">Submit</b-button>
       <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
   </div>
@@ -162,14 +143,14 @@ export default {
         terminos: null,
         fechaNacimiento: null,
         password: null,
-        repeatPass: null,
+        repeatPass: null
       },
       show: true,
       añoIntroducido: null,
       edadMaxima: 100,
       edadMinima: 1,
       añoActual: new Date().getFullYear(),
-      showAlert: false,
+      showAlert: false
     };
   },
   methods: {
@@ -181,9 +162,8 @@ export default {
           this.showAlert = false;
           utils.setItem("user", this.form.name);
           utils.setItem("email", this.form.email);
-          this.$router.push({ name: 'home', query: { redirect: '/home' } });
+          this.$router.push({ name: "home", query: { redirect: "/home" } });
         });
-        
       }
     },
     validForm() {
@@ -213,9 +193,8 @@ export default {
       let resultado = false;
       if (this.form.repeatPass) {
         if (this.form.repeatPass === this.form.password) resultado = true;
-         return resultado;
+        return resultado;
       }
-     
     },
     validDate() {
       let resultado = false;
@@ -274,7 +253,7 @@ export default {
         }
         return resultado;
       }
-    },
+    }
 
     // onReset(evt) {
     //   evt.preventDefault();
@@ -290,18 +269,16 @@ export default {
     //   });
     // }
   },
-  mounted: function () {
-    document.getElementById("genero").addEventListener("click", (evento) => {
+  mounted: function() {
+    document.getElementById("genero").addEventListener("click", evento => {
       if (!evento.target.innerHTML) {
         this.form.genero = evento.target.value;
       }
     });
-    document
-      .getElementById("checkbox-1")
-      .addEventListener("click", (evento) => {
-        this.form.terminos = !evento.target.value;
-      });
-  },
+    document.getElementById("checkbox-1").addEventListener("click", evento => {
+      this.form.terminos = !evento.target.value;
+    });
+  }
 };
 </script>
 
@@ -327,5 +304,9 @@ nav {
   color: white;
   font-size: 2.5em;
   padding: 1.5em;
+}
+
+#checkbox-1 {
+  margin-top: 1rem;
 }
 </style>
