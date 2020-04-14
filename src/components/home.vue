@@ -16,10 +16,10 @@
             :state="validTypeZone()"
             placeholder="Selecciona el tipo de excursion"
           ></b-form-select>
-          <b-form-invalid-feedback id="input-live-feedback"
-            >No has seleccionado ningun tipo de
-            excursion</b-form-invalid-feedback
-          >
+          <b-form-invalid-feedback id="input-live-feedback">
+            No has seleccionado ningun tipo de
+            excursion
+          </b-form-invalid-feedback>
         </b-form-group>
         <b-form-group
           id="input-group-3"
@@ -34,10 +34,10 @@
             :state="validZone()"
             placeholder="Nombre ciudad o zona"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback"
-            >Introduce el nombre de la ciudad o zona donde quieres hacer la
-            excursion</b-form-invalid-feedback
-          >
+          <b-form-invalid-feedback id="input-live-feedback">
+            Introduce el nombre de la ciudad o zona donde quieres hacer la
+            excursion
+          </b-form-invalid-feedback>
         </b-form-group>
         <b-form-group
           id="input-group-3"
@@ -63,8 +63,7 @@
             @click="openOverlay()"
             variant="primary"
             :disabled="!this.validfields()"
-            >Buscar rutas</b-button
-          >
+          >Buscar rutas</b-button>
         </div>
 
         <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
@@ -76,16 +75,12 @@
         <b-card no-body class="overflow-hidden" style="max-width: 540px;">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img :src="ruta.src" alt="Imagen" abajo> </b-card-img>
+              <b-card-img :src="ruta.src" alt="Imagen" abajo></b-card-img>
             </b-col>
             <b-col md="6">
               <b-card-body>
-                <b-card-title>
-                  {{ ruta.nombre }}
-                </b-card-title>
-                <b-card-text>
-                  {{ ruta.descripcion }}
-                </b-card-text>
+                <b-card-title>{{ ruta.nombre }}</b-card-title>
+                <b-card-text>{{ ruta.descripcion }}</b-card-text>
               </b-card-body>
             </b-col>
           </b-row>
@@ -125,6 +120,11 @@
 h1 {
   display: flex;
   justify-content: center;
+}
+
+label {
+  font-size: 1.25em;
+  font-weight: bold;
 }
 </style>
 

@@ -16,7 +16,7 @@
       <!-- GALLERY -->
 
       <b-overlay :show="overlayShow" rounded="sm" v-if="index != -1">
-        <h1>This are the pictures from the route selected</h1>
+        <h1 class="mt-4">This are the pictures from the route selected</h1>
         <div id="gallery-container" class="mt-4"></div>
         <template id="overlay" v-slot:overlay>
           <div class="text-center">
@@ -40,21 +40,6 @@
   grid-template-columns: repeat(2, auto);
   grid-gap: 1em;
 }
-
-/* .card {
-  padding: 10px;
-  border: black solid 4px !important;
-}
-
-.card p {
-  font-size: 1.2em;
-}
-
-.card img {
-  border: black solid 2px !important;
-  width: 100%;
-  height: auto;
-} */
 
 #footer {
   position: absolute;
