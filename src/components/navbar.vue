@@ -78,6 +78,10 @@ nav {
   color: #0e4c7c;
   background: white;
 }
+
+span {
+  font-weight: 800;
+}
 </style>
 
 <script>
