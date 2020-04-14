@@ -4,15 +4,11 @@
     <div class="container">
       <!-- SELECT BUTTON -->
       <div class="mb-2">
-        <b-dropdown
-          name="select"
-          class="m-mb-2"
-          text="Choose a route ! "
-          id="chooseRoute"
-        >
-          <b-dropdown-item v-for="element in [1, 2, 3, 4]" :key="element"
-            >Value {{ element }}</b-dropdown-item
-          >
+        <b-dropdown name="select" class="m-mb-2" text="Choose a route ! " id="chooseRoute">
+          <b-dropdown-item
+            v-for="element in ['Mountain', 'Beach', 'Country', 'All']"
+            :key="element"
+          >{{ element }}</b-dropdown-item>
         </b-dropdown>
       </div>
       <!-- END SELECT BUTTON -->
@@ -21,7 +17,7 @@
 
       <b-overlay :show="overlayShow" rounded="sm" v-if="index != -1">
         <h1>This are the pictures from the route selected</h1>
-        <div id="gallery-container"></div>
+        <div id="gallery-container" class="mt-4"></div>
         <template id="overlay" v-slot:overlay>
           <div class="text-center">
             <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
@@ -45,7 +41,7 @@
   grid-gap: 1em;
 }
 
-.card {
+/* .card {
   padding: 10px;
   border: black solid 4px !important;
 }
@@ -56,7 +52,9 @@
 
 .card img {
   border: black solid 2px !important;
-}
+  width: 100%;
+  height: auto;
+} */
 
 #footer {
   position: absolute;
@@ -103,19 +101,63 @@ export default {
       this.images
         .slice(this.index, this.index + this.numberOfImagesToCharge)
         .forEach(element => {
-          const div = document.createElement("div");
-          div.classList.add("card");
+          // const div = document.createElement("div");
+          // div.classList.add("card");
+
+          // const img = document.createElement("img");
+          // img.src = element.thumbnailUrl;
+          // img.alt = element.title;
+          // div.appendChild(img);
+
+          // const description = document.createElement("p");
+          // description.innerHTML = element.title;
+          // div.appendChild(description);
+
+          // galleryContainer.appendChild(div);
+
+          const cardContainer = document.createElement("div");
+
+          cardContainer.classList = " card overflow-hidden";
+          cardContainer.style.maxWidth = "540px";
+
+          const card = document.createElement("div");
+          card.classList = "row no-gutters";
+
+          const cardImg = document.createElement("div");
+          cardImg.classList = "col-md-6";
 
           const img = document.createElement("img");
-          img.src = element.thumbnailUrl;
+          img.classList = "card-img";
           img.alt = element.title;
-          div.appendChild(img);
+          img.src = element.thumbnailUrl;
 
-          const description = document.createElement("p");
+          cardImg.appendChild(img);
+
+          card.appendChild(cardImg);
+
+          const cardBodyContainer = document.createElement("div");
+          cardBodyContainer.classList = "col-md-6";
+
+          const cardBody = document.createElement("div");
+          cardBody.classList = "card-body";
+
+          const title = document.createElement("p");
+          title.classList = "card-title";
+          title.innerHTML = "Title";
+          cardBody.appendChild(title);
+
+          const description = document.createElement("small");
+          description.classList = "card-text";
           description.innerHTML = element.title;
-          div.appendChild(description);
+          cardBody.appendChild(description);
 
-          galleryContainer.appendChild(div);
+          cardBodyContainer.appendChild(cardBody);
+
+          card.appendChild(cardBodyContainer);
+
+          cardContainer.appendChild(card);
+
+          galleryContainer.appendChild(cardContainer);
         });
       this.index += this.numberOfImagesToCharge;
     },
