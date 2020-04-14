@@ -4,7 +4,7 @@
       <img src="./../assets/logo.png" alt="myroutes" />
     </div>
     <div id="hamburger" v-if="width < 500">
-      <Reveal right width="200">
+      <Reveal id="reval" right :width="width">
         <a id="home" href="#">
           <span>Home</span>
         </a>
