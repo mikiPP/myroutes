@@ -50,11 +50,13 @@ export default {
   mounted: function() {
     document.getElementById("login").addEventListener("submit", event => {
       event.preventDefault();
+      console.log(utils.getItem("email") , `"${this.form.email}"`)
+       console.log(utils.getItem("password") , this.form.password)
       if (
-        utils.getItem("email") === this.form.email &&
-        utils.getItem("password") === this.form.password
+        utils.getItem("email") === `"${this.form.email}"` &&
+        utils.getItem("password") === `"${this.form.password}"`
       ) {
-        console.log("Navigate");
+        this.$router.push({ name: "home", query: { redirect: "/home" } });
       } else {
         this.tried = true;
       }

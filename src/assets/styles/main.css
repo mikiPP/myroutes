@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
 body {
   background: #ffffff;
 }
@@ -40,4 +42,43 @@ body {
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Fonts  ---- */
+
+h1 {
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
+button {
+  font-weight: 800 !important;
+
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 1.75em;
+  letter-spacing: 2px;
+}
+
+.card-text {
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+input {
+  color:black;
+  font-weight: bold !important; 
+}
+small {
+  font-weight: 700;
 }
