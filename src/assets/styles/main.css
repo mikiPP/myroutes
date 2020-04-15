@@ -53,6 +53,7 @@ h1 {
 
 button {
   font-weight: 800 !important;
+
 }
 
 * {
@@ -74,6 +75,10 @@ label {
   font-weight: bold;
 }
 
+input {
+  color:black;
+  font-weight: bold !important; 
+}
 small {
   font-weight: 700;
 }

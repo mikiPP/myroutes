@@ -100,7 +100,7 @@
 
 <style>
 
-#footer {
+.footer {
   position: absolute;
   bottom: 0;
 }

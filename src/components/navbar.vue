@@ -5,15 +5,15 @@
     </div>
     <div id="hamburger" v-if="width < 500">
       <Reveal id="reval" right :width="width">
-        <a id="home" href="#" aria-current="page">
+        <router-link to="/home">
           <span>Home</span>
-        </a>
+        </router-link>
+        <router-link to="/gallery">
+          <span>Gallery</span>
+        </router-link>
         <router-link to="/login">
           <span>Login</span>
         </router-link>
-        <a id="home" href="/gallery">
-          <span>Gallery</span>
-        </a>
       </Reveal>
     </div>
     <div v-else>
@@ -32,7 +32,6 @@
           :aria-current=" '/' + element[2] === $route.path ? 'page' : false"
         >
           <span>
-            
             <a :href="element[2]">
               <b-icon :icon="element[1]"></b-icon>
               <strong>
@@ -77,6 +76,10 @@ a {
 a:hover {
   font-size: 28px;
   color: white;
+}
+
+span {
+  letter-spacing: 2px;
 }
 
 #hamburger {
