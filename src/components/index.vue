@@ -29,6 +29,12 @@
 #sign-up {
   margin: 0 2%;
 }
+
+h1 {
+  letter-spacing: 2px;
+  font-weight: 1000;
+  font-size: 3.5em;
+}
 </style>
 <script>
 export default {

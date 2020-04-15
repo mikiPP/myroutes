@@ -51,9 +51,10 @@ h1 {
   font-weight: bold;
 }
 
-button {
+button,
+a {
   font-weight: 800 !important;
-
+  letter-spacing: 1px;
 }
 
 * {
@@ -76,8 +77,8 @@ label {
 }
 
 input {
-  color:black;
-  font-weight: bold !important; 
+  color: black;
+  font-weight: bold !important;
 }
 small {
   font-weight: 700;
