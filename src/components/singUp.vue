@@ -162,7 +162,8 @@ export default {
           this.showAlert = false;
           utils.setItem("user", this.form.name);
           utils.setItem("email", this.form.email);
-          this.$router.push({ name: "home", query: { redirect: "/home" } });
+          utils.setItem("password", this.form.password)
+          this.$router.push({ name: "login", query: { redirect: "/login" } });
         });
       }
     },
