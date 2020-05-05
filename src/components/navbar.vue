@@ -5,15 +5,15 @@
     </div>
     <div id="hamburger" v-if="width < 500">
       <Reveal id="reval" right :width="width">
-        <a id="home" href="#">
+        <router-link to="/home">
           <span>Home</span>
-        </a>
+        </router-link>
+        <router-link to="/gallery">
+          <span>Gallery</span>
+        </router-link>
         <router-link to="/login">
           <span>Login</span>
         </router-link>
-        <a id="home" href="/gallery">
-          <span>Gallery</span>
-        </a>
       </Reveal>
     </div>
     <div v-else>
@@ -21,20 +21,23 @@
         <b-col
           class="text-center"
           v-for="element in [
-            ['  Home', 'house-door-fill'],
-            ['  Listado Anime', 'list-task'],
-            ['  Tipo', 'star-fill'],
-            ['  Afiliados', 'people-fill'],
-            ['  ¡ Pasar limite de Mega !', 'download'],
-            ['  ¿ Archivos sin formato ?', 'camera-video-fill']
+            ['Home', 'house-door-fill', 'home'],
+            ['Galeria', 'list-task', 'gallery'],
+            ['construccion', 'star-fill', '#'],
+            ['construccion', 'people-fill', '#'],
+            ['construccion', 'download', '#'],
+            ['construccion', 'camera-video-fill', '#'],
           ]"
           :key="element[0]"
+          :aria-current=" '/' + element[2] === $route.path ? 'page' : false"
         >
           <span>
-            <strong>
+            <a :href="element[2]">
               <b-icon :icon="element[1]"></b-icon>
-              {{ element[0] }}
-            </strong>
+              <strong>
+                {{ element[0] }}
+              </strong>
+            </a>
           </span>
         </b-col>
       </b-row>
@@ -43,6 +46,14 @@
 </template>
 
 <style>
+[aria-current] {
+  font-weight: bold;
+  background-color: #0B884E;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
 nav {
   width: 0, auto;
 }
@@ -57,6 +68,20 @@ nav {
   margin-left: 3%;
 }
 
+a {
+  color: white;
+  font-size: 22px;
+}
+
+a:hover {
+  font-size: 28px;
+  color: white;
+}
+
+span {
+  letter-spacing: 2px;
+}
+
 #hamburger {
   margin-top: 25px;
 }
@@ -66,7 +91,7 @@ nav {
 }
 
 .bv-row {
-  background: #0e4c7c;
+  background: #10B167;
   color: white;
 }
 
@@ -76,7 +101,10 @@ nav {
 
 .text-center:hover {
   color: #0e4c7c;
-  background: white;
+  background: #0B884E;
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 span {
@@ -91,12 +119,12 @@ const width = window.innerWidth;
 
 export default {
   components: {
-    Reveal
+    Reveal,
   },
   data() {
     return {
-      width
+      width,
     };
-  }
+  },
 };
 </script>
