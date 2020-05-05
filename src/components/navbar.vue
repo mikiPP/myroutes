@@ -106,6 +106,10 @@ span {
   -moz-box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+span {
+  font-weight: 800;
+}
 </style>
 
 <script>
