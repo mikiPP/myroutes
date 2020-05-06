@@ -5,45 +5,41 @@
       <b-form id="home" v-if="show">
         <b-form-group
           id="input-group-2"
-          label="Tipo de excursion:"
+          label="Type of excursion"
           label-for="input-2"
-          description="Tipo de excursion"
+          description="Type of excursion"
         >
           <b-form-select
             v-model="search.type"
             :options="options"
             required
             :state="validTypeZone()"
-            placeholder="Selecciona el tipo de excursion"
+            placeholder="Select the type of excursion"
           ></b-form-select>
-          <b-form-invalid-feedback id="input-live-feedback">
-            No has seleccionado ningun tipo de
-            excursion
-          </b-form-invalid-feedback>
+          <b-form-invalid-feedback id="input-live-feedback">Any type of excursion has been selected</b-form-invalid-feedback>
         </b-form-group>
         <b-form-group
           id="input-group-3"
-          label="Zona Excursion"
+          label="Where do you want the excursion"
           label-for="input-3"
-          description="Escribe el nombre de la zona o ciudad donde quieres hacer la excursion"
+          description="Put the name of the place where do you want to do the excursion"
         >
           <b-form-input
             id="input-2"
             v-model="search.where"
             required
             :state="validZone()"
-            placeholder="Nombre ciudad o zona"
+            placeholder="Name of the place"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback">
-            Introduce el nombre de la ciudad o zona donde quieres hacer la
-            excursion
-          </b-form-invalid-feedback>
+          <b-form-invalid-feedback
+            id="input-live-feedback"
+          >Introduce the name of the city or the place where you want to do the excursion</b-form-invalid-feedback>
         </b-form-group>
         <b-form-group
           id="input-group-3"
-          label="Zona Excursion"
+          label="When will you do the excursion"
           label-for="input-3"
-          description="Introduce la fecha de la excursión"
+          description="Introduce the date of the excursion"
         >
           <b-form-datepicker
             v-model="search.date"
@@ -63,14 +59,14 @@
             @click="openOverlay()"
             variant="primary"
             :disabled="!this.validfields()"
-          >Buscar rutas</b-button>
+          >Search routes</b-button>
         </div>
 
         <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
       </b-form>
     </div>
     <b-overlay :show="overlayShow" rounded="sm" v-if="tarjetas">
-      <h1>Estos resultados hemos encontrado</h1>
+      <h1>There are the results that have been finded</h1>
       <div id="tarjetas" v-for="ruta in rutas" :key="ruta.nombre">
         <b-card no-body class="overflow-hidden" style="max-width: 540px;">
           <b-row no-gutters>
@@ -94,7 +90,6 @@
       </template>
     </b-overlay>
     <footerApp class="footer"></footerApp>
-    <!--<b-modal v-model="overlayShow">Hello From Modal!</b-modal>-->
   </div>
 </template>
 
@@ -143,21 +138,21 @@ export default {
       },
       options: [
         { value: null, text: "Elige una opcion", disabled: true },
-        { value: true, text: "Montaña" },
-        { value: true, text: "Bosque" },
-        { value: true, text: "Playa" },
+        { value: true, text: "Mountain" },
+        { value: true, text: "Country" },
+        { value: true, text: "Beach" },
         { value: true, text: "Mixto" }
       ],
       rutas: [
         {
-          nombre: "playa",
-          descripcion: "playa de mallorca",
+          nombre: "Beach",
+          descripcion: "Beach of mallorca",
           src:
             "https://www.abc-mallorca.es/wp-content/uploads/2012/02/cala-mondrago-best-beaches.jpg"
         },
         {
-          nombre: "playa2",
-          descripcion: "playa de mallorca2",
+          nombre: "Beach",
+          descripcion: "Beach of mallorca2",
           src:
             "https://okdiario.com/img/2020/01/13/las-5-playas-mas-bonitas-del-mundo-en-2020.jpg"
         }

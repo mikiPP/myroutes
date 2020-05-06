@@ -29,6 +29,10 @@
 #sign-up {
   margin: 0 2%;
 }
+
+a {
+  font-weight: unset;
+}
 </style>
 <script>
 export default {

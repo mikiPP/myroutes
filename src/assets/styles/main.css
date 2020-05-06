@@ -77,3 +77,7 @@ label {
 small {
   font-weight: 700;
 }
+
+a {
+  font-weight: unset;
+}
