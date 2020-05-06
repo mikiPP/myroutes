@@ -4,11 +4,11 @@
     <b-form id="form" @submit="onSubmit" v-if="show">
       <b-form-group
         id="input-group-1"
-        label="Dirección Email:"
+        label="Email:"
         label-for="input-1"
-        description="Cualquier email valido"
+        description="Any valid email"
       >
-        <b-alert :show="this.showAlert" variant="success">Creado correctamente</b-alert>
+        <b-alert :show="this.showAlert" variant="success">User has been created successfully</b-alert>
 
         <b-form-input
           id="input-1"
@@ -16,31 +16,31 @@
           type="email"
           :state="validMail()"
           required
-          placeholder="ejemplo@gmail.com"
+          placeholder="something@gmail.com"
         ></b-form-input>
       </b-form-group>
 
       <b-form-group
         id="input-group-2"
-        label="Tu nombre:"
+        label="Your name:"
         label-for="input-2"
-        description="No son necesarios los apellidos"
+        description="You need to put the surname as well as name"
       >
         <b-form-input
           id="input-2"
           v-model="form.name"
           required
           :state="validName()"
-          placeholder="nombre apellido apellido"
+          placeholder="name surname"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback">El nombre {{ form.name }} es incorrecto</b-form-invalid-feedback>
+        <b-form-invalid-feedback id="input-live-feedback">The name: {{ form.name }} is not valid</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group
         id="input-group-3"
-        label="Tu edad:"
+        label="Your age"
         label-for="input-3"
-        description="Edad maxima 100"
+        description="The max is 100"
       >
         <b-form-input
           id="input-3"
@@ -53,43 +53,43 @@
           max="100"
         ></b-form-input>
         <b-form-invalid-feedback id="input-live-feedback">
-          La edad {{ form.edad }} es
-          {{ form.edad > this.edadMaxima ? "mayor" : "menor" }} que
+          The age {{ form.edad }} is
+          {{ form.edad > this.edadMaxima ? "Greater" : "Less" }} than
           {{ this.edadMaxima }}
         </b-form-invalid-feedback>
       </b-form-group>
       <b-form-group
-        label="Tu password:"
+        label="Password:"
         label-for="input-1"
-        description="1 minuscula,1 mayuscula, 1 numero , 8 caracteres"
+        description="1 uppercase letter,1 lowercase letter, 1 number, 8 characters"
       >
         <b-form-input
           v-model="form.password"
           type="password"
           :state="validPass()"
           required
-          placeholder="tu contraseña"
+          placeholder="Password"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback">contraseña 1</b-form-invalid-feedback>
+        <b-form-invalid-feedback id="input-live-feedback">Password 1</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Repite password:" label-for="input-1" description="Repite tu contraseña">
+      <b-form-group label="Repeat password:" label-for="input-1" description="Repeat password">
         <b-form-input
           v-model="form.repeatPass"
           type="password"
           :state="validRepeatPass()"
           required
-          placeholder="repite tu contraseña"
+          placeholder="Repeat Password"
         ></b-form-input>
-        <b-form-invalid-feedback id="input-live-feedback">contraseña 2</b-form-invalid-feedback>
+        <b-form-invalid-feedback id="input-live-feedback">Repeat Password</b-form-invalid-feedback>
       </b-form-group>
 
       <b-container class="bv-example-row">
         <b-row>
           <b-col>
             <b-form-radio-group label="Genero" v-model="form.genero" id="genero">
-              <b-form-radio name="radio" value="Hombre">hombre</b-form-radio>
-              <b-form-radio name="radio" value="Mujer">mujer</b-form-radio>
+              <b-form-radio name="radio" value="Hombre">Man</b-form-radio>
+              <b-form-radio name="radio" value="Mujer">Woman</b-form-radio>
             </b-form-radio-group>
           </b-col>
           <b-col>
@@ -102,11 +102,11 @@
             ></b-form-input>
             <!--mensaje de error-->
             <b-form-invalid-feedback id="input-live-feedback">
-              El año introducido {{ this.form.fechaNacimiento }}
+              The year introduced {{ this.form.fechaNacimiento }}
               {{
-              this.añoIntroducido > 1900 ? " es superior " : " es inferior "
+              this.añoIntroducido > 1900 ? " is greater " : " is lower "
               }}
-              al año {{ añoActual }} porfavor cambie el año
+              than the year {{ añoActual }} please change the year.
             </b-form-invalid-feedback>
           </b-col>
         </b-row>
@@ -120,10 +120,9 @@
         value="true"
         unchecked-value="false"
         class="mt-4"
-      >Acepto los terminos y condiciones</b-form-checkbox>
+      >I agree terms and conditions</b-form-checkbox>
 
       <b-button class="mt-4" type="submit" variant="primary" :disabled="!this.validForm()">Submit</b-button>
-      <!-- <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
   </div>
 </template>
