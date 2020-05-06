@@ -94,6 +94,7 @@
 </template>
 
 <style>
+
 .footer {
   position: absolute;
   bottom: 0;
